@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import * as S from "./styles";
 import axios from "axios";
 
-const Main = ({ data, selectedType }) => {
+const Main = ({ data, selectedType, selectedWeek }) => {
   return (
     <S.Main>
       <div className="days_of_week">
-        <div className="empty-div" style={{ width: "180px" }}></div>
+        <div
+          className="empty-div"
+          style={{ width: "180px", backgroundColor: "#d8e4f5" }}
+        ></div>
         <p className="background-color">Luni</p>
         <p className="background-color">Marți</p>
         <p className="background-color">Miercuri</p>
@@ -21,27 +24,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 1 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -52,27 +81,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 2 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -84,27 +139,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 3 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -115,27 +196,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 4 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -146,27 +253,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 5 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -177,27 +310,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 6 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -208,27 +367,53 @@ const Main = ({ data, selectedType }) => {
         </div>
         {new Array(6).fill().map((elem, i) => (
           <div className="item">
-            <p>
-              {
-                data.filter(
+            {(data.filter(
+              (e, index) => e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+            )[0]?.isEvenWeek === selectedWeek ||
+              data.filter(
+                (e, index) => e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+              )[0]?.isEvenWeek === null) && (
+              <>
+                <p>
+                  {
+                    data.filter(
+                      (e, index) =>
+                        e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+                    )[0]?.name
+                  }
+                </p>
+                {data.filter(
                   (e, index) => e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
-                )[0]?.name
-              }
-            </p>
-            <p>
-              {
-                data.filter(
+                )[0] && (
+                  <p className="classes">
+                    {selectedType?.value === "Classes"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+                        )[0]?.lectureRoom}
+                  </p>
+                )}
+                {data.filter(
                   (e, index) => e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
-                )[0]?.lectureRoom
-              }
-            </p>
-            <p>
-              {
-                data.filter(
-                  (e, index) => e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
-                )[0]?.teacher
-              }
-            </p>
+                )[0] && (
+                  <p className="teacher">
+                    {selectedType?.value === "Teachers"
+                      ? data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+                        )[0]?.group
+                      : data.filter(
+                          (e, index) =>
+                            e?.timePeriod === 7 && e?.dayOfTheWeek === i + 1
+                        )[0]?.teacher}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         ))}
       </div>

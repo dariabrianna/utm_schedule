@@ -10,8 +10,8 @@ export const Header = styled.div`
   max-height: 100px;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  border-bottom-color: hsl(var(--secondary));
-  border-bottom: 1px solid #e5e7eb;
+  /* border-bottom-color: hsl(var(--secondary));
+  border-bottom: 1px solid #e5e7eb; */
   box-sizing: border-box;
   img {
     width: 102px;
@@ -19,7 +19,7 @@ export const Header = styled.div`
   .filter {
     width: 200px;
   }
-  input {
+  & > input {
     height: 38px;
     background-color: transparent;
     width: 300px;
@@ -35,5 +35,23 @@ export const Header = styled.div`
     padding: 7px;
     border-radius: 8px;
     cursor: pointer;
+  }
+  .switchers {
+    display: flex;
+    gap: 16px;
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      p {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+      input {
+        width: 20px;
+        height: 20px;
+        margin-top: 0;
+      }
+    }
   }
 `;

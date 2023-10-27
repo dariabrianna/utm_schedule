@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  margin: 8px;
+  margin: 30px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 60px);
   .perechi {
     border-top: none !important;
   }
@@ -38,6 +38,9 @@ export const Main = styled.div`
       width: 150px;
       border: 1px solid #cecfd3;
       height: auto;
+      &:not(:last-child) {
+        border-top: none;
+      }
     }
     & > p,
     & > .item {
@@ -53,6 +56,7 @@ export const Main = styled.div`
       }
       &:not(:first-child) {
         border-left: none !important;
+        border-top: none;
       }
     }
     &:not(:last-child) {
@@ -72,7 +76,7 @@ export const Main = styled.div`
     font-family: __Inter_20951f, __Inter_Fallback_20951f;
     font-style: normal;
     font-weight: bold;
-    padding: 12px;
+    padding: 27px 12px;
     gap: 12px 0;
     & > div {
       text-orientation: upright;
@@ -85,5 +89,25 @@ export const Main = styled.div`
     border: 1px solid black;
     border-radius: 6px;
     padding: 1px 9px;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .classes {
+    border-color: transparent;
+    background-color: #d8e4f5;
+    border: 1px solid #d8e4f5;
+    border-radius: 6px;
+    padding: 2px 4px;
+  }
+  .teacher {
+    border-color: transparent;
+    background-color: #95f2d9;
+    border: 1px solid #95f2d9;
+    border-radius: 6px;
+    padding: 2px 4px;
   }
 `;

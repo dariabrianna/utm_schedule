@@ -10,9 +10,12 @@ const Header = ({
   setData,
   selectedType,
   setSelectedType,
+  selectedWeek,
+  setSelectedWeek,
 }) => {
   const [selectedGroup, setSelectedGroup] = useState(data);
   const [selectedSecondOption, setSelectedSecondOption] = useState(null);
+
   const [secondOptions, setSecondOptions] = useState([]);
   const exampleDropdown = [
     { label: "Groups", value: "Groups" },
@@ -76,6 +79,7 @@ const Header = ({
 
   useEffect(() => {
     setSelectedSecondOption(null);
+    setData([]);
   }, [selectedType]);
 
   return (
@@ -113,6 +117,25 @@ const Header = ({
           placeholder="Select"
         />
       )}
+
+      <div className="switchers">
+        <div>
+          <input
+            type="radio"
+            checked={selectedWeek === false}
+            onChange={(e) => setSelectedWeek(false)}
+          />
+          <p>Odd</p>
+        </div>
+        <div>
+          <input
+            type="radio"
+            checked={selectedWeek === true}
+            onChange={(e) => setSelectedWeek(true)}
+          />
+          <p>Even</p>
+        </div>
+      </div>
       <div>
         {isMode ? (
           <svg

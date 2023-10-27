@@ -6,7 +6,7 @@ function App() {
   const [isMode, setIsMode] = useState(false);
   const [data, setData] = useState([]);
   const [selectedType, setSelectedType] = useState(null);
-
+  const [selectedWeek, setSelectedWeek] = useState(true);
   return (
     <div>
       <Header
@@ -15,8 +15,14 @@ function App() {
         setData={setData}
         selectedType={selectedType}
         setSelectedType={setSelectedType}
+        selectedWeek={selectedWeek}
+        setSelectedWeek={setSelectedWeek}
       />
-      <Main data={data} selectedType={selectedType} />
+      <Main
+        data={data}
+        selectedType={selectedType}
+        selectedWeek={selectedWeek}
+      />
     </div>
   );
 }
