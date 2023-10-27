@@ -1,10 +1,25 @@
 import { useEffect } from "react";
 import * as S from "./styles";
 import axios from "axios";
+import { useState } from "react";
+
+const getDate = () => {
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const day = today.getDate();
+  return `${day}/${month}/${year}`;
+};
 
 const Main = ({ data, selectedType, selectedWeek }) => {
+  const [currentDate, setCurrentDate] = useState(getDate());
   return (
     <S.Main>
+      <img src="/images/logo_utm.png" />
+      <div className="date">
+        <p>Today's date: </p>
+        <p>{currentDate}</p>
+      </div>
       <div className="days_of_week">
         <div
           className="empty-div"

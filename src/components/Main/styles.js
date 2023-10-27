@@ -5,6 +5,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% - 60px);
+  position: relative;
   .perechi {
     border-top: none !important;
   }
@@ -16,7 +17,6 @@ export const Main = styled.div`
     padding: 12px;
     border: 1px solid #cecfd3;
     width: 92px;
-    font-family: __Inter_20951f, __Inter_Fallback_20951f;
     font-style: normal;
     font-weight: bold;
     padding: 5px;
@@ -27,7 +27,6 @@ export const Main = styled.div`
   }
 
   .days_of_week {
-    font-family: __Inter_20951f, __Inter_Fallback_20951f;
     font-style: normal;
     font-weight: bold;
     display: flex;
@@ -73,7 +72,6 @@ export const Main = styled.div`
     padding: 12px;
     border: 1px solid hsl(0, 0%, 80%);
     width: 92px;
-    font-family: __Inter_20951f, __Inter_Fallback_20951f;
     font-style: normal;
     font-weight: bold;
     padding: 27px 12px;
@@ -83,7 +81,6 @@ export const Main = styled.div`
     }
   }
   span {
-    font-family: __Inter_20951f, __Inter_Fallback_20951f;
     font-style: normal;
     font-weight: bold;
     border: 1px solid black;
@@ -109,5 +106,25 @@ export const Main = styled.div`
     border: 1px solid #95f2d9;
     border-radius: 6px;
     padding: 2px 4px;
+  }
+  .date {
+    font-weight: bold;
+    gap: 4px;
+    font-style: normal;
+    font-size: 18px;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+  }
+  img {
+    position: absolute;
+    max-width: 700px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;

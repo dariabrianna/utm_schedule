@@ -8,7 +8,6 @@ export const Header = styled.div`
   align-items: center;
   flex-direction: row;
   max-height: 100px;
-  padding-bottom: 1rem;
   padding-top: 1rem;
   /* border-bottom-color: hsl(var(--secondary));
   border-bottom: 1px solid #e5e7eb; */
@@ -17,6 +16,7 @@ export const Header = styled.div`
     width: 102px;
   }
   .filter {
+    font-style: normal;
     width: 200px;
   }
   & > input {
@@ -37,6 +37,7 @@ export const Header = styled.div`
     cursor: pointer;
   }
   .switchers {
+    font-style: normal;
     display: flex;
     gap: 16px;
     & > div {

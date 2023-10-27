@@ -4,6 +4,14 @@ import * as S from "./styles";
 import Select from "react-select";
 import axios from "axios";
 
+const getDate = () => {
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const day = today.getDate();
+  return `${day}/${month}/${year}`;
+};
+
 const Header = ({
   isMode,
   setIsMode,
@@ -15,7 +23,7 @@ const Header = ({
 }) => {
   const [selectedGroup, setSelectedGroup] = useState(data);
   const [selectedSecondOption, setSelectedSecondOption] = useState(null);
-
+  const [currentDate, setCurrentDate] = useState(getDate());
   const [secondOptions, setSecondOptions] = useState([]);
   const exampleDropdown = [
     { label: "Groups", value: "Groups" },
