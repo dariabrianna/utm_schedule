@@ -35,15 +35,15 @@ const Header = ({
     if (selectedType?.value) {
       if (selectedType.value === "Groups") {
         axios
-          .get(`https://universityschedule.bsite.net/api/groups`)
+          .get(`https://uscheduleutm.bsite.net/api/groups`)
           .then((res) => setSecondOptions(res.data));
       } else if (selectedType.value === "Teachers") {
         axios
-          .get(`https://universityschedule.bsite.net/api/teachers`)
+          .get(`https://uscheduleutm.bsite.net/api/teachers`)
           .then((res) => setSecondOptions(res.data));
       } else if (selectedType.value === "Classes") {
         axios
-          .get(`https://universityschedule.bsite.net/api/lecturerooms`)
+          .get(`https://uscheduleutm.bsite.net/api/lecturerooms`)
           .then((res) => setSecondOptions(res.data));
       }
     }
@@ -52,7 +52,7 @@ const Header = ({
   const getGroupInfo = () => {
     axios
       .get(
-        `https://universityschedule.bsite.net/api/lectures/group/${selectedSecondOption.value}`
+        `https://uscheduleutm.bsite.net/api/lectures/group/${selectedSecondOption.value}`
       )
       .then((res) => setData(res.data));
   };
@@ -60,7 +60,7 @@ const Header = ({
   const getTeacherInfo = () => {
     axios
       .get(
-        `https://universityschedule.bsite.net/api/lectures/teacher/${selectedSecondOption.value}`
+        `https://uscheduleutm.bsite.net/api/lectures/teacher/${selectedSecondOption.value}`
       )
       .then((res) => setData(res.data));
   };
@@ -68,12 +68,10 @@ const Header = ({
   const getLecturesInfo = () => {
     axios
       .get(
-        `https://universityschedule.bsite.net/api/lectures/lectureroom/${selectedSecondOption.value}`
+        `https://uscheduleutm.bsite.net/api/lectures/lectureroom/${selectedSecondOption.value}`
       )
       .then((res) => setData(res.data));
   };
-
-  console.log(selectedSecondOption);
 
   useEffect(() => {
     if (selectedSecondOption && selectedType.value === "Teachers") {
@@ -97,7 +95,6 @@ const Header = ({
         className="filter"
         value={selectedType}
         onChange={(e) => {
-          console.log(e);
           setSelectedType(e);
         }}
         options={exampleDropdown}
@@ -144,7 +141,7 @@ const Header = ({
           <p>Even</p>
         </div>
       </div>
-      <div>
+      <div className="svg">
         {isMode ? (
           <svg
             onClick={() => setIsMode(!isMode)}

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  margin: 30px;
+  margin: 30px 30px 0 30px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
   width: calc(100% - 60px);
@@ -126,5 +127,44 @@ export const Main = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+`;
+
+export const Mobile = styled.div`
+  .header {
+    background: rgb(216, 228, 245);
+    margin: 0;
+    padding: 16px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    color: #212121 !important;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  & > div {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    .item {
+      padding: 16px 0;
+
+      p {
+        margin: 0;
+      }
+      .classes {
+        margin-top: 12px;
+      }
+      .teacher {
+        margin-top: 12px;
+      }
+      .name {
+        margin-top: 12px;
+      }
+    }
+    .item:not(:last-of-type) {
+      border-bottom: 1px solid #ccc;
+    }
   }
 `;

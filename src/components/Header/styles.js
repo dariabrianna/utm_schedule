@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Header = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 16px;
   justify-content: center;
   align-items: center;
@@ -12,6 +11,16 @@ export const Header = styled.div`
   /* border-bottom-color: hsl(var(--secondary));
   border-bottom: 1px solid #e5e7eb; */
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-height: fit-content;
+    position: relative;
+    .svg svg {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+  }
   img {
     width: 102px;
   }

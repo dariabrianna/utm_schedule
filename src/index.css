@@ -11,3 +11,55 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.dark {
+  background: black;
+}
+.dark .background-color,
+.dark .empty-div {
+  background: hsl(204 80% 16% / 0.5) !important;
+  color: #fff !important;
+}
+.empty-div {
+  border-top: 1px solid #cecfd3 !important;
+}
+
+.dark p.background-color {
+  border-top: 1px solid #cecfd3 !important;
+  border-bottom: 1px solid #cecfd3 !important;
+}
+.dark .perechi span {
+  border-color: #fff !important;
+}
+
+.dark .date p {
+  color: #fff !important;
+}
+.dark .switchers p {
+  color: #fff !important;
+}
+
+.dark svg path {
+  color: #fff !important;
+}
+
+.dark .filter > div {
+  background: #000 !important;
+}
+
+.dark [class$="-option"] {
+  color: #fff !important;
+  background: #000 !important;
+}
+.dark .item > p:first-of-type {
+  color: #fff !important;
+}
+@media (max-width: 768px) {
+  .dark .name {
+    color: #fff !important;
+  }
+}
+
+.dark [class$="-option"]:hover {
+  background: rgb(52, 48, 48) !important;
+}
